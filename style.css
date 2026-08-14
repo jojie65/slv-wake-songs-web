@@ -1,0 +1,359 @@
+/* ---------------------------------------------
+   SLV Wake Songs — tokens
+--------------------------------------------- */
+:root {
+  --ink: #16242B;
+  --ink-deep: #0D171B;
+  --paper: #F6EFDC;
+  --paper-dim: #ECE1C4;
+  --gold: #C79A46;
+  --gold-soft: #DCC07E;
+  --maroon: #7A2E2E;
+  --text: #2B2420;
+  --text-soft: #6B5F51;
+  --text-on-ink: #F1E7CE;
+  --text-on-ink-dim: #B9AC90;
+
+  --font-display: "Spectral", Georgia, serif;
+  --font-lyrics: "Source Serif 4", Georgia, serif;
+  --font-ui: "Inter", system-ui, sans-serif;
+
+  --radius: 10px;
+  --shadow-page: 0 18px 40px -20px rgba(13, 23, 27, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper-dim);
+  color: var(--text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------------------------------------------
+   Layout shell
+--------------------------------------------- */
+#app {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.view[hidden] { display: none; }
+
+/* ---------------------------------------------
+   Home view — cover page
+--------------------------------------------- */
+.cover {
+  background:
+    radial-gradient(120% 160% at 50% -20%, #1E323A 0%, var(--ink) 55%, var(--ink-deep) 100%);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+
+.cover-inner { max-width: 640px; margin: 0 auto; }
+
+.cover-eyebrow {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.cover-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 7vw, 3.2rem);
+  color: var(--text-on-ink);
+  letter-spacing: 0.01em;
+}
+
+.cover-subtitle {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-lyrics);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--text-on-ink-dim);
+}
+
+.open-button {
+  margin-top: 1.75rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--gold);
+  color: var(--ink-deep);
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.98rem;
+  cursor: pointer;
+}
+
+.open-button:hover { background: var(--gold-soft); }
+.open-button:focus-visible { outline: 2px solid var(--text-on-ink); outline-offset: 3px; }
+
+.qr-card {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 2.5rem;
+  text-align: center;
+}
+
+.qr-code {
+  display: inline-flex;
+  padding: 0.85rem;
+  background: var(--paper);
+  border: 1px solid #DCCFA9;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-page);
+}
+
+.qr-code img { display: block; border-radius: 2px; }
+
+.qr-caption {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* ---------------------------------------------
+   Compact bar — list / song views
+--------------------------------------------- */
+.bar {
+  background: var(--ink);
+  border-bottom: 3px solid var(--gold);
+  padding: 1rem 1.25rem;
+}
+
+.bar-title {
+  display: block;
+  max-width: 640px;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text-on-ink);
+  text-decoration: none;
+}
+
+.bar-title:hover { color: var(--gold-soft); }
+
+#view-list,
+#view-song {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* ---------------------------------------------
+   List view
+--------------------------------------------- */
+.list-toolbar { margin-bottom: 1rem; }
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--paper);
+  border: 1px solid #DCCFA9;
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+}
+
+.search-icon { width: 18px; height: 18px; color: var(--text-soft); flex-shrink: 0; }
+
+.search-field input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-ui);
+  font-size: 0.98rem;
+  color: var(--text);
+  width: 100%;
+}
+
+.search-field input::placeholder { color: var(--text-soft); }
+
+.song-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  border: 1px solid #DCCFA9;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.song-list li + li { border-top: 1px solid #E3D7B4; }
+
+.song-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  color: var(--text);
+}
+
+.song-row:hover,
+.song-row:focus-visible {
+  background: #EFE4C4;
+}
+
+.song-row:focus-visible {
+  outline: 2px solid var(--maroon);
+  outline-offset: -2px;
+}
+
+.song-row .num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--maroon);
+  min-width: 1.6rem;
+}
+
+.song-row .title {
+  font-size: 1.02rem;
+  flex: 1;
+}
+
+.song-row .lang {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  align-self: center;
+}
+
+.empty-state {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  color: var(--text-soft);
+  font-family: var(--font-lyrics);
+  font-style: italic;
+}
+
+/* ---------------------------------------------
+   Song detail view — the open page
+--------------------------------------------- */
+.page {
+  position: relative;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.9rem 0.5rem 0.7rem;
+  background: var(--ink);
+  color: var(--text-on-ink);
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back-button svg { width: 16px; height: 16px; }
+
+.back-button:hover { background: var(--ink-deep); }
+.back-button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.song-page {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid #DCCFA9;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-page);
+  padding: 2.1rem 1.6rem 2.6rem;
+}
+
+/* the ribbon bookmark — signature element, echoes the song number */
+.ribbon {
+  position: absolute;
+  top: -8px;
+  right: 22px;
+  width: 34px;
+  height: 58px;
+  background: var(--maroon);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+  box-shadow: 0 6px 10px -4px rgba(13, 23, 27, 0.5);
+  z-index: 1;
+}
+
+.song-number {
+  margin: 0 0 0.15rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--maroon);
+  text-transform: uppercase;
+}
+
+.song-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 5vw, 1.9rem);
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.song-lang {
+  margin: 0 0 1.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
+.song-lang:empty { display: none; }
+
+.song-lyrics {
+  margin: 0;
+  font-family: var(--font-lyrics);
+  font-size: 1.28rem;
+  line-height: 1.9;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ---------------------------------------------
+   Footer
+--------------------------------------------- */
+.app-footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
+/* ---------------------------------------------
+   Small screens
+--------------------------------------------- */
+@media (max-width: 400px) {
+  .song-page { padding: 1.8rem 1.15rem 2.1rem; }
+  .song-lyrics { font-size: 1.18rem; }
+}

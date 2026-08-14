@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLV Wake Songs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<main id="app">
+
+  <!-- HOME VIEW (cover page) -->
+  <section id="view-home" class="view">
+    <div class="cover">
+      <div class="cover-inner">
+        <p class="cover-eyebrow">SLV &middot; Cebuano &middot; Filipino &middot; English</p>
+        <h1 class="cover-title">Wake Songs</h1>
+        <p class="cover-subtitle">A songbook for the vigil</p>
+        <button id="open-songbook" class="open-button" type="button">Open Songbook</button>
+      </div>
+    </div>
+
+    <div class="qr-card">
+      <div id="qr-code" class="qr-code" aria-hidden="true"></div>
+      <p class="qr-caption">Scan to open this songbook on your phone</p>
+    </div>
+  </section>
+
+  <!-- COMPACT HEADER for list/song views -->
+  <header class="bar" id="bar-list-song" hidden>
+    <a href="#home" class="bar-title">SLV Wake Songs</a>
+  </header>
+
+  <!-- LIST VIEW -->
+  <section id="view-list" class="view" hidden>
+    <div class="list-toolbar">
+      <label class="search-field" for="search-input">
+        <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true">
+          <circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <line x1="13.2" y1="13.2" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="Find a song by number or title" autocomplete="off">
+      </label>
+    </div>
+
+    <ol id="song-list" class="song-list"></ol>
+
+    <p id="empty-state" class="empty-state" hidden>No songs match your search.</p>
+  </section>
+
+  <!-- SONG DETAIL VIEW -->
+  <section id="view-song" class="view" hidden>
+    <div class="page">
+      <button id="back-button" class="back-button" type="button">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Songs
+      </button>
+
+      <div class="ribbon" id="song-ribbon" aria-hidden="true"></div>
+
+      <article class="song-page">
+        <p class="song-number" id="song-number"></p>
+        <h2 class="song-title" id="song-title"></h2>
+        <p class="song-lang" id="song-lang"></p>
+        <pre class="song-lyrics" id="song-lyrics"></pre>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <p>For SLV choir ministry use &middot; offline songbook</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
