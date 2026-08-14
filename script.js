@@ -14,21 +14,18 @@ const SONGS = [
     title: "01 Kon Magkatigum Ta",
     lang: "Cebuano",
     lyrics:
-`[KORO:]Kon magkatigum ta sa Iyang ngalan,
-
-Siya natong tanan makig-uban.
-
-Kon maghi-usa ta sa Iyang gugma,
-
-kalinaw maangkon ta.
+`[KORO:] 
+Kon magkatigum ta sa Iyang 
+ngalan, Siya natong tanan 
+makig-uban. Kon maghi-usa
+ta sa Iyang gugma,kalinaw 
+maangkon ta.
 
 Ug sa atong panginahanglan,
-
 ang Ginoo ang atong dangpan,
-
 kay Siya ra man ang tuburan
-
-sa tanang mga kaayohan.`
+sa tanang mga kaayohan.
+[(Koro)]`
   },
   {
     id: 2,
@@ -154,17 +151,20 @@ function renderLyrics(container, lyricsText) {
   const lines = lyricsText.split("\n");
 
   lines.forEach((line, index) => {
-    const trimmed = line.trim();
-    const labelMatch = trimmed.match(/^\[(.+)\]$/);
+    // Split the line on any [bracketed] segment, keeping the
+    // brackets in the result so we know which pieces to style.
+    const parts = line.split(/(\[[^\]]+\])/);
 
-    if (labelMatch) {
-      const label = document.createElement("span");
-      label.className = "lyric-label";
-      label.textContent = labelMatch[1];
-      container.appendChild(label);
-    } else {
-      container.appendChild(document.createTextNode(line));
-    }
+    parts.forEach(part => {
+      if (/^\[[^\]]+\]$/.test(part)) {
+        const label = document.createElement("span");
+        label.className = "lyric-label";
+        label.textContent = part.slice(1, -1);
+        container.appendChild(label);
+      } else if (part.length > 0) {
+        container.appendChild(document.createTextNode(part));
+      }
+    });
 
     if (index < lines.length - 1) {
       container.appendChild(document.createElement("br"));

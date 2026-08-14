@@ -322,7 +322,16 @@ body {
   border: 1px solid #DCCFA9;
   border-radius: var(--radius);
   box-shadow: var(--shadow-page);
-  padding: 2.1rem 1.6rem 2.6rem;
+  overflow: hidden;
+}
+
+.song-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--paper);
+  padding: 2.1rem 1.6rem 1rem;
+  border-bottom: 1px solid #E3D7B4;
 }
 
 /* the ribbon bookmark — signature element, echoes the song number */
@@ -335,7 +344,16 @@ body {
   background: var(--maroon);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
   box-shadow: 0 6px 10px -4px rgba(13, 23, 27, 0.5);
-  z-index: 1;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10px;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-on-ink);
+  letter-spacing: 0.02em;
 }
 
 .song-number {
@@ -357,7 +375,7 @@ body {
 }
 
 .song-lang {
-  margin: 0 0 1.4rem;
+  margin: 0;
   font-family: var(--font-ui);
   font-size: 0.78rem;
   color: var(--text-soft);
@@ -367,6 +385,7 @@ body {
 
 .song-lyrics {
   margin: 0;
+  padding: 1.4rem 1.6rem 2.6rem;
   font-family: var(--font-lyrics);
   font-size: 1.55rem;
   line-height: 1.85;
@@ -399,6 +418,6 @@ body {
    Small screens
 --------------------------------------------- */
 @media (max-width: 400px) {
-  .song-page { padding: 1.8rem 1.15rem 2.1rem; }
-  .song-lyrics { font-size: 1.4rem; }
+  .song-head { padding: 1.8rem 1.15rem 0.85rem; }
+  .song-lyrics { padding: 1.2rem 1.15rem 2.1rem; font-size: 1.4rem; }
 }
