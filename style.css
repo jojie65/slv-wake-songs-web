@@ -187,6 +187,34 @@ body {
 
 .search-field input::placeholder { color: var(--text-soft); }
 
+.lang-filter {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 0.4rem 0.9rem;
+  background: var(--paper);
+  border: 1px solid #DCCFA9;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+
+.chip:hover { background: #EFE4C4; }
+.chip:focus-visible { outline: 2px solid var(--maroon); outline-offset: 2px; }
+
+.chip.is-active {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--text-on-ink);
+}
+
 .song-list {
   list-style: none;
   margin: 0;
@@ -201,8 +229,10 @@ body {
 
 .song-row {
   display: flex;
-  align-items: baseline;
-  gap: 0.85rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 0.85rem;
+  row-gap: 0.3rem;
   width: 100%;
   padding: 0.95rem 1.1rem;
   background: none;
@@ -229,11 +259,16 @@ body {
   font-size: 0.95rem;
   color: var(--maroon);
   min-width: 1.6rem;
+  flex-shrink: 0;
+  padding-top: 0.1rem;
 }
 
 .song-row .title {
   font-size: 1.02rem;
-  flex: 1;
+  line-height: 1.4;
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-word;
 }
 
 .song-row .lang {
@@ -241,7 +276,8 @@ body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-soft);
-  align-self: center;
+  flex-basis: 100%;
+  padding-left: calc(1.6rem + 0.85rem);
 }
 
 .empty-state {
@@ -332,11 +368,20 @@ body {
 .song-lyrics {
   margin: 0;
   font-family: var(--font-lyrics);
-  font-size: 1.28rem;
-  line-height: 1.9;
+  font-size: 1.55rem;
+  line-height: 1.85;
   color: var(--text);
-  white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+.lyric-label {
+  display: inline-block;
+  margin: 0.5rem 0 0.15rem;
+  font-family: var(--font-ui);
+  font-style: italic;
+  font-size: 0.65em;
+  letter-spacing: 0.03em;
+  color: var(--maroon);
 }
 
 /* ---------------------------------------------
@@ -355,5 +400,5 @@ body {
 --------------------------------------------- */
 @media (max-width: 400px) {
   .song-page { padding: 1.8rem 1.15rem 2.1rem; }
-  .song-lyrics { font-size: 1.18rem; }
+  .song-lyrics { font-size: 1.4rem; }
 }

@@ -14,7 +14,7 @@ const SONGS = [
     title: "01 Kon Magkatigum Ta",
     lang: "Cebuano",
     lyrics:
-`Kon magkatigum ta sa Iyang ngalan,
+`[KORO:]Kon magkatigum ta sa Iyang ngalan,
 
 Siya natong tanan makig-uban.
 
@@ -54,6 +54,7 @@ const barEl = document.getElementById("bar-list-song");
 const songListEl = document.getElementById("song-list");
 const emptyStateEl = document.getElementById("empty-state");
 const searchInput = document.getElementById("search-input");
+const langFilterEl = document.getElementById("lang-filter");
 const backButton = document.getElementById("back-button");
 const openSongbookButton = document.getElementById("open-songbook");
 const qrCodeEl = document.getElementById("qr-code");
@@ -65,14 +66,41 @@ const songLyricsEl = document.getElementById("song-lyrics");
 const songRibbonEl = document.getElementById("song-ribbon");
 
 /* ---------------------------------------------------------------
-   Render: song list (optionally filtered)
+   Render: language filter chips — built automatically from
+   whatever `lang` values actually appear in SONGS. Add a song with
+   a new language and its chip shows up on its own; no HTML edit
+   needed.
 ------------------------------------------------------------------ */
-function renderList(filterText) {
-  const query = (filterText || "").trim().toLowerCase();
+function renderLangChips() {
+  const languages = [...new Set(SONGS.map(song => song.lang).filter(Boolean))].sort();
+  const allLabels = ["All", ...languages];
 
-  const filtered = query
-    ? SONGS.filter(song => song.title.toLowerCase().includes(query))
-    : SONGS;
+  langFilterEl.innerHTML = "";
+
+  allLabels.forEach(label => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "chip" + (label === currentLangFilter ? " is-active" : "");
+    chip.dataset.lang = label;
+    chip.textContent = label;
+    langFilterEl.appendChild(chip);
+  });
+}
+
+/* ---------------------------------------------------------------
+   Render: song list (search text + language filter combined)
+------------------------------------------------------------------ */
+let currentSearch = "";
+let currentLangFilter = "All";
+
+function renderList() {
+  const query = currentSearch.trim().toLowerCase();
+
+  const filtered = SONGS.filter(song => {
+    const matchesSearch = !query || song.title.toLowerCase().includes(query);
+    const matchesLang = currentLangFilter === "All" || song.lang === currentLangFilter;
+    return matchesSearch && matchesLang;
+  });
 
   songListEl.innerHTML = "";
 
@@ -98,7 +126,10 @@ function renderList(filterText) {
     button.appendChild(num);
     button.appendChild(title);
 
-    if (song.lang) {
+    // Only show the language tag on each row when viewing "All" —
+    // once a specific language is picked via the chips above, the
+    // tag would just repeat what the user already filtered by.
+    if (song.lang && currentLangFilter === "All") {
       const lang = document.createElement("span");
       lang.className = "lang";
       lang.textContent = song.lang;
@@ -113,13 +144,42 @@ function renderList(filterText) {
 }
 
 /* ---------------------------------------------------------------
+   Render lyrics text into a container, styling bracketed advisory
+   lines (e.g. "[Chorus]", "[Koro]", "[Repeat to Verse 1]") as
+   labels distinct from the sung lyrics themselves.
+------------------------------------------------------------------ */
+function renderLyrics(container, lyricsText) {
+  container.innerHTML = "";
+
+  const lines = lyricsText.split("\n");
+
+  lines.forEach((line, index) => {
+    const trimmed = line.trim();
+    const labelMatch = trimmed.match(/^\[(.+)\]$/);
+
+    if (labelMatch) {
+      const label = document.createElement("span");
+      label.className = "lyric-label";
+      label.textContent = labelMatch[1];
+      container.appendChild(label);
+    } else {
+      container.appendChild(document.createTextNode(line));
+    }
+
+    if (index < lines.length - 1) {
+      container.appendChild(document.createElement("br"));
+    }
+  });
+}
+
+/* ---------------------------------------------------------------
    Render: single song page
 ------------------------------------------------------------------ */
 function renderSong(song) {
   songNumberEl.textContent = `No. ${String(song.id).padStart(2, "0")}`;
   songTitleEl.textContent = song.title.replace(/^\d+\s+/, "");
   songLangEl.textContent = song.lang || "";
-  songLyricsEl.textContent = song.lyrics;
+  renderLyrics(songLyricsEl, song.lyrics);
   songRibbonEl.textContent = String(song.id).padStart(2, "0");
 }
 
@@ -204,12 +264,27 @@ backButton.addEventListener("click", () => {
 });
 
 searchInput.addEventListener("input", event => {
-  renderList(event.target.value);
+  currentSearch = event.target.value;
+  renderList();
+});
+
+langFilterEl.addEventListener("click", event => {
+  const chip = event.target.closest(".chip");
+  if (!chip) return;
+
+  currentLangFilter = chip.dataset.lang;
+
+  langFilterEl.querySelectorAll(".chip").forEach(c => {
+    c.classList.toggle("is-active", c.dataset.lang === currentLangFilter);
+  });
+
+  renderList();
 });
 
 /* ---------------------------------------------------------------
    Initial render
 ------------------------------------------------------------------ */
-renderList("");
+renderLangChips();
+renderList();
 renderQrCode();
 handleRoute();
