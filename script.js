@@ -35,7 +35,7 @@ sa tanang mga kaayohan.
     title: "02 Ang Buhat Tang Maayo",
     lang: "Cebuano",
     lyrics: 
-    "[1.]  Ang buhat tang maayo ngadtos mga katawhan, mao kini gisugo, sa atong kasulatan. Pinaagi kanato, kini ilang makita,nga ang kamanduan gugma diay'ng langitnon alang sa tanan.\n\n[KORO]\nPagka-anindot sa maayong buhat ngadto sa atong mga igsoon. Kon mag-ambahan sa katam-is grasya nga giandam na sa Ginoong Dios Amahan.\n\n[2.]  Itudlo, O Ginoo, unsa'y among buhaton nga ilang kahimut-an ang akong binuhatan. Hatagi ko'g kahait, sa ako nga pangisip, aron matuman ko ang gipabuhat nga alang gyud sa tanan. [(Koro)]"
+    "^1.^  Ang buhat tang maayo ngadtos mga katawhan, mao kini gisugo, sa atong kasulatan. Pinaagi kanato, kini ilang makita,nga ang kamanduan gugma diay'ng langitnon alang sa tanan.\n\n[KORO]\nPagka-anindot sa maayong buhat ngadto sa atong mga igsoon. Kon mag-ambahan sa katam-is grasya nga giandam na sa Ginoong Dios Amahan.\n\n^2.^  Itudlo, O Ginoo, unsa'y among buhaton nga ilang kahimut-an ang akong binuhatan. Hatagi ko'g kahait, sa ako nga pangisip, aron matuman ko ang gipabuhat nga alang gyud sa tanan. [(Koro)]"
   },
   {
     id: 3,
@@ -44,9 +44,9 @@ sa tanang mga kaayohan.
     lyrics: `[KORO:] 
 Kay kita usa ra sa gugma ni Kristo. Kon mamatay kita uban Kaniya, mabanhaw kita sa kinabuhing dayon.
 
-[1.]  	Kon sa imong kinabuhi gugma ang gadasig, ayaw na pangita ug lain pang butang, kay ang Ginoo anaa kanimo. [(KORO)]
+^1.^  	Kon sa imong kinabuhi gugma ang gadasig, ayaw na pangita ug lain pang butang, kay ang Ginoo anaa kanimo. [(KORO)]
 
-[2.]    Kon aduna kay igsoon nag-antos sa kasakit, lig-ona ang pagtuo sa langitnong gahum kay ang Ginoo mao ang paglaum. [(Koro)]
+^2.^    Kon aduna kay igsoon nag-antos sa kasakit, lig-ona ang pagtuo sa langitnong gahum kay ang Ginoo mao ang paglaum. [(Koro)]
 `
   },
   {
@@ -128,6 +128,44 @@ Kay kita usa ra sa gugma ni Kristo. Kon mamatay kita uban Kaniya, mabanhaw kita 
     Ginoo, milaum ako Kanimo, mitoo ako sa kagahuman Mo. Misalig ako sa Imong gugma; sa Imong pagpangga ug pag-amoma.
 
     ^2.^  Kon adunay kalinaw human sa kasamok; kon adunay pasaylo human sa kaligotgot; kon adunay pagbati human sa kayugot; laum kalag ko, ayaw kahadlok. [(Koro)]
+    `
+  },
+  {
+    id: 8,
+    title: "08 Gugma'g Paglaum",
+    lang: "Cebuano",
+    lyrics: `
+    ^1.)^   Ayaw'g wad-a ang paglaum, bisan tuod sa mga kadag-um; kay luyo sa mga panganod, nagasidlak ang adlaw. Huptan ta ang kalig-on, ang kalig-on sa pagtuo. O gugma'ng way kahadlokan, O gugma'ng hilabihan.
+
+    [KORO:]
+      Kon atong palandongon, ang mga nangaging panahon, kaguol man kon kalipay, ang tanan ay lumalabay. Pagkanindot nga mabuhi, nga adunay ginamithi. Kinabuhing hinalad, gugma'ng way paglubad.
+
+    ^2.)^   Ayaw'g wad-a ang kadasig bisan tuod sa mga kasakit; kon aduna may kangitngit, may bitoon ang langit. Huptan ta ang kalig-on, ang kalig-on sa pagtuo. O gugma'ng way kahadlokan, O gugma'ng hilabihan. [(Koro)]
+
+    ^Coda: ^  Kinabuhi'ng hinalad, gugma'ng way paglubad.
+    `
+  },
+  {
+    id: 9,
+    title: "09 Tana Kamo, Kaigsoonan",
+    lang: "Cebuano",
+    lyrics: `
+    Tana kamo, kaigsoonan; adto ta sa Ginoo. Ang hustong dalan, kamatuoran, kinabuhing wa'y utlanan.
+
+    Tana kamo, atong simbahon, awitan ta ang Ginoo; kay angayan gayud Siya sa pagdayeg ug gugma ta.
+
+    Ikaw ang kadasig; Ikaw ang kalig-on; Ikaw ang paglaum karon. Sa among kalibog, sa among pag-antus, tabangi kami, O Jesus.
+    `
+  },
+  {
+    id: 10,
+    title: "10 Gugma",
+    lang: "Cebuano",
+    lyrics: `
+    Gugma ang naghagit kanamo sa paghalad sa among kinabuhi. Gugma ang nagdasig kanamo sa pagsilbi Kanimo, O Ginoo.
+
+    Ikaw ra ang bugtong paglaum; kahayag sa takna'ng madulom. Ug kami magpadayon, Ginoo, sa pagsilbi Kanimo sa pagtoo. Kay kami modangop Kanimo sa kasakit ug kalipay hangtud sa ikamatay.
+    
     `
   }
 ];
