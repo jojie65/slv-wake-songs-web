@@ -20,6 +20,8 @@
 
   --radius: 10px;
   --shadow-page: 0 18px 40px -20px rgba(13, 23, 27, 0.45);
+  --bar-height: 3.5rem;
+  --toolbar-height: 3.4rem;
 }
 
 * { box-sizing: border-box; }
@@ -133,13 +135,25 @@ body {
    Compact bar — list / song views
 --------------------------------------------- */
 .bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  height: var(--bar-height);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
   background: var(--ink);
   border-bottom: 3px solid var(--gold);
-  padding: 1rem 1.25rem;
+  padding: 0 1.25rem;
 }
+
+.bar[hidden] { display: none; }
 
 .bar-title {
   display: block;
+  width: 100%;
   max-width: 640px;
   margin: 0 auto;
   font-family: var(--font-display);
@@ -155,7 +169,7 @@ body {
 #view-song {
   max-width: 640px;
   margin: 0 auto;
-  padding: 1.5rem 1.25rem 3rem;
+  padding: calc(var(--bar-height) + 1.5rem) 1.25rem 3rem;
 }
 
 /* ---------------------------------------------
@@ -295,11 +309,23 @@ body {
   position: relative;
 }
 
+.song-toolbar {
+  position: sticky;
+  top: var(--bar-height);
+  z-index: 4;
+  height: var(--toolbar-height);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--paper-dim);
+}
+
 .back-button {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  margin-bottom: 1rem;
   padding: 0.5rem 0.9rem 0.5rem 0.7rem;
   background: var(--ink);
   color: var(--text-on-ink);
@@ -322,22 +348,21 @@ body {
   border: 1px solid #DCCFA9;
   border-radius: var(--radius);
   box-shadow: var(--shadow-page);
-  overflow: hidden;
 }
 
 .song-head {
   position: sticky;
-  top: 0;
+  top: calc(var(--bar-height) + var(--toolbar-height));
   z-index: 2;
   background: var(--paper);
-  padding: 2.1rem 1.6rem 1rem;
+  padding: 1.2rem 1.6rem 1rem;
   border-bottom: 1px solid #E3D7B4;
 }
 
 /* the ribbon bookmark — signature element, echoes the song number */
 .ribbon {
   position: absolute;
-  top: -8px;
+  top: 0;
   right: 22px;
   width: 34px;
   height: 58px;
@@ -400,6 +425,11 @@ body {
   font-style: italic;
   font-size: 0.65em;
   letter-spacing: 0.03em;
+  color: var(--maroon);
+}
+
+.song-lyrics sup {
+  font-style: italic;
   color: var(--maroon);
 }
 

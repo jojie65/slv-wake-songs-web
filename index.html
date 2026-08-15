@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
@@ -58,15 +58,16 @@
   <!-- SONG DETAIL VIEW -->
   <section id="view-song" class="view" hidden>
     <div class="page">
-      <button id="back-button" class="back-button" type="button">
-        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Songs
-      </button>
-
-      <div class="ribbon" id="song-ribbon" aria-hidden="true"></div>
+      <div class="song-toolbar">
+        <button id="back-button" class="back-button" type="button">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Songs
+        </button>
+      </div>
 
       <article class="song-page">
         <div class="song-head">
+          <div class="ribbon" id="song-ribbon" aria-hidden="true"></div>
           <p class="song-number" id="song-number"></p>
           <h2 class="song-title" id="song-title"></h2>
           <p class="song-lang" id="song-lang"></p>

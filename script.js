@@ -25,22 +25,112 @@ Ug sa atong panginahanglan,
 ang Ginoo ang atong dangpan,
 kay Siya ra man ang tuburan
 sa tanang mga kaayohan.
-[(Koro)]`
+[(Koro)]
+
+
+`
   },
   {
     id: 2,
     title: "02 Ang Buhat Tang Maayo",
     lang: "Cebuano",
-    lyrics: "Lyrics not yet added."
+    lyrics: 
+    "[1.]  Ang buhat tang maayo ngadtos mga katawhan, mao kini gisugo, sa atong kasulatan. Pinaagi kanato, kini ilang makita,nga ang kamanduan gugma diay'ng langitnon alang sa tanan.\n\n[KORO]\nPagka-anindot sa maayong buhat ngadto sa atong mga igsoon. Kon mag-ambahan sa katam-is grasya nga giandam na sa Ginoong Dios Amahan.\n\n[2.]  Itudlo, O Ginoo, unsa'y among buhaton nga ilang kahimut-an ang akong binuhatan. Hatagi ko'g kahait, sa ako nga pangisip, aron matuman ko ang gipabuhat nga alang gyud sa tanan. [(Koro)]"
   },
   {
     id: 3,
     title: "03 Kay Kita Usa Ra",
     lang: "Cebuano",
-    lyrics: "Lyrics not yet added."
+    lyrics: `[KORO:] 
+Kay kita usa ra sa gugma ni Kristo. Kon mamatay kita uban Kaniya, mabanhaw kita sa kinabuhing dayon.
+
+[1.]  	Kon sa imong kinabuhi gugma ang gadasig, ayaw na pangita ug lain pang butang, kay ang Ginoo anaa kanimo. [(KORO)]
+
+[2.]    Kon aduna kay igsoon nag-antos sa kasakit, lig-ona ang pagtuo sa langitnong gahum kay ang Ginoo mao ang paglaum. [(Koro)]
+`
+  },
+  {
+    id: 4,
+    title: "04 Sino Ako",
+    lang: "Tagalog",
+    lyrics: `
+    Hiram sa Diyos ang aking
+    buhay. Ikaw at ako tanging
+    handog lamang. Di ko ninais
+    na ako’y isilang. Ngunit 
+    salamat dahil may buhay.
+
+    Ligaya ko na ako’y isilang
+    Pagkat tao ay mayroong
+    dangal. Sino’ng may 
+    pag-ibig, sino’ng 
+    nagmamahal kundi ang tao 
+    Diyos ang pinagmulan.
+    Kundi ako umibig, kundi
+    ko man bigyang halaga 
+    ang buhay ko’y handog, 
+    ang buhay ko’y hiram sa 
+    Dios, kung di ako
+    nagmamahal, sino ako? [(repeat Ligaya ko . .)]
+
+    `
+  },
+  {
+    id: 5,
+    title: "05 Diosnong Magtutudlo",
+    lang: "Cebuano",
+    lyrics: `
+    Diosnong Magtutudlo, ania
+    kami karon, binuksan ang 
+    kasing-kasing sa Imong 
+    Pulong. Dinhi niining tigom,
+    Imo kaming gitawag aron 
+    lamang mabuhi sa Imong mga
+    hatag, aron lamang mabuhi sa
+    Imong mga hatag. 
+    [(Repeat once)]
+    `
+  },
+  {
+    id: 6,
+    title: "06 Ang Kinabuhi Sa Tawo",
+    lang: "Cebuano",
+    lyrics:`
+    Ang kinabuhi sa tawo sama sa
+    usa ka binhi. Kon alimahan 
+    pag-ayo moturok kini'g 
+    molambo. Ug unya abto'g 
+    kahamtog sama sa atong 
+    tanom kay inumol man sa 
+    gugma, gugma sa isigkaingon.
+
+    Kay ki'ng atong kinabuhi,
+    kinabuhi'ng usa ra. Ug sama 
+    sa usa ka binhi, sa gugma 
+    kita gipili. Kay kinabuhing
+    bililhon, bulawan ang 
+    panahon. Ato g'yung pani-
+    nguhaon ang pagpuyo nga 
+    sulondon, ato g'yung pani-
+    nguhaon ang pagpuyo nga 
+    sulondon. 
+
+    `
+  },
+  {
+    id: 7,
+    title: "07 Laum, Kalag Ko",
+    lang: "Cebuano",
+    lyrics:`
+    ^1.^  Kon adunay kahayag human sa kangitngit; kon adunay kalipay human sa kasakit; kon adunay katam-is human sa kapa-it, laum kalag ko, adunay langit.
+
+    [KORO:]
+    Ginoo, milaum ako Kanimo, mitoo ako sa kagahuman Mo. Misalig ako sa Imong gugma; sa Imong pagpangga ug pag-amoma.
+
+    ^2.^  Kon adunay kalinaw human sa kasamok; kon adunay pasaylo human sa kaligotgot; kon adunay pagbati human sa kayugot; laum kalag ko, ayaw kahadlok. [(Koro)]
+    `
   }
 ];
-
 /* ---------------------------------------------------------------
    Elements
 ------------------------------------------------------------------ */
@@ -141,9 +231,10 @@ function renderList() {
 }
 
 /* ---------------------------------------------------------------
-   Render lyrics text into a container, styling bracketed advisory
-   lines (e.g. "[Chorus]", "[Koro]", "[Repeat to Verse 1]") as
-   labels distinct from the sung lyrics themselves.
+  // Render lyrics text into a container, styling bracketed advisory
+// lines (e.g. "[Chorus]", "[Koro]", "[Repeat to Verse 1]") as
+// labels distinct from the sung lyrics themselves, and ^caret^
+// segments (e.g. "^1^") as superscript verse numbers.
 ------------------------------------------------------------------ */
 function renderLyrics(container, lyricsText) {
   container.innerHTML = "";
@@ -151,9 +242,10 @@ function renderLyrics(container, lyricsText) {
   const lines = lyricsText.split("\n");
 
   lines.forEach((line, index) => {
-    // Split the line on any [bracketed] segment, keeping the
-    // brackets in the result so we know which pieces to style.
-    const parts = line.split(/(\[[^\]]+\])/);
+    // Split the line on any [bracketed] advisory label or any
+    // ^caret-wrapped^ superscript segment, keeping the markers in
+    // the result so we know which pieces to style.
+    const parts = line.split(/(\[[^\]]+\]|\^[^^]+\^)/);
 
     parts.forEach(part => {
       if (/^\[[^\]]+\]$/.test(part)) {
@@ -161,6 +253,10 @@ function renderLyrics(container, lyricsText) {
         label.className = "lyric-label";
         label.textContent = part.slice(1, -1);
         container.appendChild(label);
+      } else if (/^\^[^^]+\^$/.test(part)) {
+        const sup = document.createElement("sup");
+        sup.textContent = part.slice(1, -1);
+        container.appendChild(sup);
       } else if (part.length > 0) {
         container.appendChild(document.createTextNode(part));
       }
