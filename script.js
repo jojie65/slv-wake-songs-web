@@ -167,6 +167,149 @@ Kay kita usa ra sa gugma ni Kristo. Kon mamatay kita uban Kaniya, mabanhaw kita 
     Ikaw ra ang bugtong paglaum; kahayag sa takna'ng madulom. Ug kami magpadayon, Ginoo, sa pagsilbi Kanimo sa pagtoo. Kay kami modangop Kanimo sa kasakit ug kalipay hangtud sa ikamatay.
     
     `
+  },
+  {
+    id: 11,
+    title: "11 Dios Lang Igo Na",
+    lang: "Cebuano",
+    lyrics: `
+    Ang kabalaka ayaw pasudla ug ang tanan mong kahadlok wad-a. Kay ang tanang butang lumalabay, Dios lang ang magpabiling kanunay.
+
+    [KORO:]
+    Ang pailub mao ra'y sinugdan sa tanan mo'ng mga kaayohan. Ang Diosnon, sa tanan wa na'y gana; Dios lang igo na alang kaniya.
+
+    ^Coda:^  Dios lang igo na alang kaniya.
+
+    `
+  },
+  {
+    id: 12,
+    title: "12 Ang Tao",
+    lang: "Tagalog",
+    lyrics: `
+    ^1.)^  Bawat tao'y nabuhay sa hapis; bawat patak ng luha'y pagdama. Bawat pintig ng puso'y tamis; bawat buhay mayroong simula.
+
+    [KORO:]
+    Ang buhay mo ay di sa iyo. Napag-isip-isip mo na ba? Ilang taon ang lumipas na, lumipas na, lumipas na? Bawat tao'y simula, bawat simula'y hangganan. Magpasya ka saan ka pupunta.
+
+    ^2.)^  Bawat simula'y s'yang hangganan; bawat hakbang ng tao'y may baitang. Bawat baitang panahon ng buhay; bawat buhay mayroon'g simula. [(Koro)]
+
+    `
+  },
+  {
+    id: 13,
+    title: "13 Pag-aalay Ng Puso",
+    lang: "Tagalog",
+    lyrics: `
+    Minsan lamang ako daraan sa daigdig na ito. Kaya ano man ang mabuting maari'ng gawin ko ngayon. O anumang kabutihan ang maari kong ipadama. Itulot ninyong magawa ko ngayon ang mga bagay na 'to.
+
+    [Refrain:]  Nawa'y 'wag ko 'tong ipagpaliban o ipagwalang bahala. Sapagkat 'di na 'ko muling daraan sa ganito'ng mga landas. [(Repeat refrain once)]
+
+    `
+  },
+  {
+    id: 14,
+    title: "14 Sa Imong Mga Kamot, Amahan",
+    lang: "Cebuano",
+    lyrics: `
+    Sa Imong mga kamot, Amahan, ang amo karon'g igsoon itugyan. Dawata siya sa paraiso, malaumon kami, O Ginoo.
+
+    Salamat sa Imo'ng kaayo'g gugma nga Imong gipakita sa buhi pa siya. Lig-ona kami ssa pagtoo; hiusaha kami, O Ginoo. [(Balikon ... sa Imong mga kamot..)]
+    `
+  },
+  {
+    id: 15,
+    title: "15 Mao Kini Ang Paghinigugmaay",
+    lang: "Cebuano",
+    lyrics: `
+    ^1.)^  Ani-a kita aron mag-inambitay sa mga tuig, mga luha'g kalipay. Gugma'ng naghiusa kanato karon, mag-inunungay ta sa tanang panahon.
+
+    [KORO]
+    Mao kini ang kinabuhi. Mao kini ang kagawasan. Mao kini ang kalipay. Mao kini ang paghinigugmaay.
+
+    ^2.)^  Ania kita aron magbinayloay, sa mga buhat ug kasinatian. Gugma'ng naghiusa kanatong tanan. Magtinamdanay ta kay kini gugma man. [(Koro)]
+
+    `
+  },
+  {
+    id: 16,
+    title: "16 Tanging Yaman",
+    lang: "Tagalog",
+    lyrics: `
+    [KORO:]
+    Ikaw ang aking tanging yaman, na di lubosan'g masumpongan. Ang nilikha Mo'ng kariktan, sulyap ng 'Yong kagandahan.
+
+    ^1.)^  Ika'y hanap sa t'wina, nito'ng pusong ikaw lamang ang saya. Sa ganda ng umaga, nangungulila sa 'yo sinta. [(Koro)]
+
+    ^2.)^  Ika'y hanap sa t'wina, sa kapwa ko kita laging nadarama. Sa Iyong mga likha, hangad pa rin'g masdan ang 'Yong mukha. [(Koro)]
+
+    `
+  },
+  {
+    id: 17,
+    title: "17 Hindi Kita Malilimutan",
+    lang: "Tagalog",
+    lyrics: `
+    Hindi kita malilimutan. Hindi kita pababayaan. Nakaukit magpakailanman sa 'King palad ang 'yong pangalan.
+
+    Malilimutan ba ng ina ang anak na galing sa kanya? Sanggol sa kangyang sinapupunan, paano niya matatalikdan?
+
+    Ngunit kahit na malimutan ng ina ang anak niyang tangan.
+
+    Hindi kita malilimutan; kailanma'y di pababayaan. Hindi kita malilimutan; kailanma'y di pababayaan.
+
+    `
+  },
+  {
+    id: 18,
+    title: "18 Sa 'Yo Lamang",
+    lang: "Tagalog",
+    lyrics: `
+    Puso ko'y binihag mo sa tamis ng pagsuyo. Tanggapin yaring alay; ako'y iyo habambuhay.
+
+    Aanhin pa ang kayamanan, luha at karangalan. Kung ika'y mapasa'kin, lahat na nga ay kakamtin.
+
+    [KORO:]
+    Sa 'yo lamang ang puso ko. Sa 'yo lamang ang buhay ko. Kalinisan, pagdaralita, pagtalima aking sumpa.
+
+    Tangan ko'ng kalooban sa iyo'y nilalaan. Dahil atas ng pagsuyo, tumalima lamang sa 'yo. [(Koro)].
+
+    `
+  },
+  {
+    id: 19, 
+    title: "19 Sa Diyos Lamang Mapapanatag",
+    lang: "Tagalog",
+    lyrics: `
+    [KORO:]
+    Sa Diyos lamang mapapanatag ang aking kaluluwa; sa Kanya nagmumula ang aking pag-asa at kaligtasan.
+
+    ^1.)^  O Diyos, Ikaw ang aking kaligtasan, nasa 'Yo aking kalwalhatian. Ikaw lamang aking inaasahan, ang aking moog at tanggulan. [(Koro)]
+
+    ^2.)^  Paniniil di ko pananaligan; puso'y 'di ihihilig sa yaman. Kundi sa Diyos na makapangyarihan na aking lakas at takbuhan. [(Koro)]
+
+    ^3.)^  Poon, Ika'y puno ng kabutihan; pastol 'Kang nagmamahal sa kawan. Ina-akay sa luntiang pastulan, tupa'y hanap Mo kung mawaglit man. [(Koro)]
+
+    `
+  },
+  {
+    id: 20,
+    title: "20 Manalig Ka",
+    lang: "Tagalog",
+    lyrics: `
+    Iluom lahat ng takot sa iyong damdamin. Ang pangalan N'ya lagi ang tawagin at S'ya'y nakikinig sa bawat hinaing.
+
+    Magmasid at mamulat sa Kanyang kapangyarihan. Nabatid mo ba na S'yay naglalaan at patuloy na naghahatid ng tunay na kalayaan. 
+
+    Manalig ka, tuyuin ang luha sa mga mata. Hindi S'ya panaginip, hindi S'ya isang pangarap. S'yay buhay, manalig ka.
+
+    At ngayo'y tila walang mararating na bukas. Ngunit kung S'ya'y hahayaang maglandas, pag-asa ay muling mabibigkas.
+
+    Manalig ka, tuyuin ang luha sa mga mata. Hindi S'ya panaginip, hindi S'ya isang pangarap. S'ya'y buhay, manalig ka.
+
+    Manalig ka, tuyuin ang luha sa mga mata. Hindi S'ya natutulog, hindi S'ya nakakalimot. Kay Hesus, manalig ka.
+    
+    `
   }
 ];
 /* ---------------------------------------------------------------
