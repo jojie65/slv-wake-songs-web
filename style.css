@@ -280,7 +280,7 @@ body {
 .song-row .title {
   font-size: 1.02rem;
   line-height: 1.4;
-  flex: 1 1 auto;
+  flex: 1 1 0%;
   min-width: 0;
   word-break: break-word;
 }
