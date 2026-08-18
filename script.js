@@ -1364,6 +1364,18 @@ langFilterEl.addEventListener("click", event => {
 });
 
 /* ---------------------------------------------------------------
+   Register the service worker — this is what makes the app work
+   offline and installable. Safe to skip silently on browsers that
+   don't support it, or when not served over https/localhost.
+------------------------------------------------------------------ */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch(err => {
+      console.log("Service worker registration failed:", err);
+    });
+  });
+}
+/* ---------------------------------------------------------------
    Initial render
 ------------------------------------------------------------------ */
 renderLangChips();
